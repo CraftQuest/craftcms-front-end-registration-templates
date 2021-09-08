@@ -1,0 +1,22 @@
+{% extends "_layout" %}
+{% if currentUser %} {% redirect "/dashboard" %} {% endif %}
+{% block headJs %}
+    {{ sprig.script }}
+{% endblock %}
+{% block headCss %}
+    <style>
+        .htmx-indicator { display: none; }
+        .htmx-request.htmx-indicator { display: block; }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <img class="mx-auto h-12 w-auto" src="https://craftquest.io/img/craftquest-logo-dark.svg" alt="CraftQuest">
+            <h2 class="mt-6 text-center text-3xl font-bold text-gray-800">
+                Create Your Free Account
+            </h2>
+        </div>
+        {{ sprig('_components/register-form') }}
+    </div>
+{% endblock %}

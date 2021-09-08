@@ -1,0 +1,5 @@
+{% macro errorsList(errors) %}
+    {% if errors %}
+        {{ ul(errors, {class: 'mt-2 text-sm text-red-600'}) }}
+    {% endif %}
+{% endmacro %}

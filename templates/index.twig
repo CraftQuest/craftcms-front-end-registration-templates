@@ -1,0 +1,49 @@
+{% extends "_layout" %}
+{% block content %}
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+        <div class="max-w-3xl mx-auto">
+            <img src="https://craftquest.io/img/craftquest-logo-dark.svg" class="h-12"/>
+            <h1 class="text-2xl mt-6 mb-6 font-extrabold">Front-end Registration Templates</h1>
+            <ul role="list" class="divide-y divide-gray-200">
+                <li class="py-4 pl-4 bg-gray-100">
+                    <a class="underline" href="{{ url('login') }}">Log In</a> (<a href="">source</a>)
+                </li>
+                <li class="py-4 pl-4">
+                    <a class="underline" href="{{ url('register') }}">Register</a> (<a href="">source</a>)
+                </li>
+                <li class="py-4 pl-4 bg-gray-100">
+                    <a class="underline" href="{{ url('forgot-password') }}">Forgot Password Form</a> (<a href="">source</a>)
+                </li>
+                <li class="py-4 pl-4">
+                    <a class="underline" href="{{ url('setpassword', {id: '12345', code: '12345'}) }}">Set Password</a> (<a href="">source</a>)<br>
+                    Requires a valid reset password token in URL parameter.
+                </li>
+                <li class="py-4 pl-4 bg-gray-100">
+                    <a class="underline" href="{{ url('dashboard') }}">Dashboard</a> (<a href="">source</a>)
+                </li>
+                <li class="py-4 pl-4">
+                    <a class="underline" href="{{ url('logout') }}">Log Out</a> (action only)
+                </li>
+            </ul>
+
+            <div class="mt-6 border-t-2 border-gray-200 pt-6">
+            <p class="mt-2">Templates and settings for a reliable front-end user registration flow. Provided by <a class="underline" href="https://craftquest.io">CraftQuest</a></p>
+            <p class="mt-2"><em>The templates are only meant as example code, not to be copy and pasted into your project. Use code, settings, and interactions as a guide for your own project.</em></p>
+
+            <h3 class="text-xl mt-4">License Constraints</h3>
+            Requires Craft Pro license (can use trial version for testing locally.
+
+            <h3 class="text-xl mt-4">Plugins Used</h3>
+            <a class="underline" href="https://putyourlightson.com/sprig">Sprig</a>
+
+            <h3 class="text-xl mt-4">Credits & Acknowledgements</h3>
+            <ul class="mt-2">
+                <li><a class="underline" href="https://tailwindcss.com">Tailwind</a> by Tailwind Labs for the style framework</li>
+                <li><a class="underline" href="https://tailwindui.com">Tailwind UI</a> by Tailwind Labs for the starter styles</li>
+                <li><a class="underline" href="https://putyourlightson.com/sprig">Sprig</a> by Ben Croker at Put Your Lights On for the Javascript-free reactivity</li>
+            </ul>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

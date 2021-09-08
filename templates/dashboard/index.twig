@@ -1,0 +1,52 @@
+{% extends "_layout" %}
+{% requireLogin %}
+{% block content %}
+    <div class="relative h-screen flex overflow-hidden bg-gray-100">
+        <div class="hidden lg:flex lg:flex-shrink-0">
+            <div class="flex flex-col w-64">
+                <div class="flex flex-col flex-grow bg-gray-900 pt-5 pb-4 overflow-y-auto">
+                    <div class="flex items-center flex-shrink-0 px-4">
+                        <img class="h-8 w-auto" src="https://craftquest.io/img/logo.svg" alt="CraftQuest"">
+                    </div>
+                    <nav class="mt-5 flex-1 flex flex-col divide-y divide-black overflow-y-auto" aria-label="Sidebar">
+                        <div class="px-2 space-y-1">
+                            <a href="/dashboard" class="bg-gray-800 text-white group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md" aria-current="page">
+                                <svg class="mr-4 flex-shrink-0 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                                Home
+                            </a>
+                            <a href="/logout" class="text-gray-400 hover:text-white hover:bg-gray-800 group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="mr-4 flex-shrink-0 h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                </svg>
+                                Logout
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1 overflow-auto focus:outline-none">
+            <main class="flex-1 relative pb-8 z-0 overflow-y-auto">
+                <div class="bg-white shadow">
+                    <div class="px-4 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8">
+                        <div class="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200">
+                            <div class="flex-1 min-w-0">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="flex items-center">
+                                            <h1 class="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate">
+                                                Welcome, {{ currentUser.firstName }}!
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+{% endblock %}

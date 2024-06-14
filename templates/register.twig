@@ -1,8 +1,5 @@
 {% extends "_layout" %}
 {% if currentUser %} {% redirect "/dashboard" %} {% endif %}
-{% block headJs %}
-    {{ sprig.script }}
-{% endblock %}
 {% block headCss %}
     <style>
         .htmx-indicator { display: none; }

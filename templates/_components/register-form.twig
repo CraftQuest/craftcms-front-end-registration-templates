@@ -9,7 +9,9 @@
                     First Name
                 </label>
                 <div class="mt-1">
-                    <input id="first-name" name="firstName" type="text" autocomplete="first-name" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 sm:text-sm" required value="{{ user.firstName ?? null }}">
+                    <input id="first-name" name="firstName" type="text" autocomplete="first-name"
+                           class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 sm:text-sm"
+                           required value="{{ user.firstName ?? null }}">
                 </div>
                 {{ user ? forms.errorsList(user.getErrors('firstName')) }}
             </div>
@@ -18,7 +20,9 @@
                     Last Name
                 </label>
                 <div class="mt-1">
-                    <input id="last-name" name="lastName" type="text" autocomplete="last-name" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm" required value="{{ user.lastName ?? null }}">
+                    <input id="last-name" name="lastName" type="text" autocomplete="last-name"
+                           class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm"
+                           required value="{{ user.lastName ?? null }}">
                 </div>
                 {{ user ? forms.errorsList(user.getErrors('lastName')) }}
             </div>
@@ -27,7 +31,9 @@
                     Email
                 </label>
                 <div class="mt-1">
-                    <input id="email" name="email" type="email" autocomplete="email"  class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm" required value="{{ user.email ?? null }}">
+                    <input id="email" name="email" type="email" autocomplete="email"
+                           class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm"
+                           required value="{{ user.email ?? null }}">
                 </div>
                 {{ user ? forms.errorsList(user.getErrors('email')) }}
             </div>
@@ -37,26 +43,42 @@
                     Password
                 </label>
                 <div class="mt-1">
-                    <input id="password" name="password" type="password" autocomplete="current-password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm">
+                    <input id="password" name="password" type="password" autocomplete="current-password" required
+                           class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm">
                 </div>
                 {{ user ? forms.errorsList(user.getErrors('password')) }}
             </div>
             <div>
-                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 focus:outline-none">
+                <button type="submit"
+                        class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-800 hover:bg-gray-700 focus:outline-none">
                     <div id="spinner" class="htmx-indicator pr-4">
-                        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                    stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor"
+                                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
                     </div>
                     Register
                 </button>
-                {% if success is defined and success %}
+                {% if sprig.isSuccess %}
                     <div class="rounded-lg bg-green-50 p-4 mt-4 border-2 border-green-100">
                         <div class="flex">
                             <div class="ml-3">
                                 <p class="text-sm font-medium text-green-800">
-                                    We created your account! Please check your email to verify your email address before logging in.
+                                    We created your account! Please check your email to verify your email address before
+                                    logging in.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% elseif sprig.isError %}
+                    <div class="rounded-lg bg-red-50 p-4 mt-4 border-2 border-green-100">
+                        <div class="flex">
+                            <div class="ml-3">
+                                <p class="text-sm font-medium text-red-800">
+                                    Oh, no! There was a problem creating your account.
                                 </p>
                             </div>
                         </div>
